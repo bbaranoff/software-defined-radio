@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-content_root="../../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>A5/1 — GSM Ciphering &mdash; Software Defined Radio 1 documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+            <link rel="index" title="Index" href="../../genindex.html" />
+            <link rel="search" title="Search" href="../../search.html" />
+            <link rel="top" title="Software Defined Radio 1 documentation" href="#" />
+            <link rel="up" title="2G" href="index.html" />
+            <link rel="next" title="3G : UMTS/HSPA/HSPA+" href="../3G/index.html" />
+            <link rel="prev" title="OsmocomBB" href="osmocombb.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="../../index.html"
+                        title="Wagtail"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../../_static/img/wagtail-logo-circle.svg" width="45" height="59" alt="Wagtail"
+                            class="logo-img"
+                        />
+                        Sphinx Wagtail Theme
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">English - SDR Blackbook – Field Notes &amp; Hacks</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../sdr/index.html">SDR</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sdr/what.html">What is an SDR?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdr/sdr.html">Different kind of SDR</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">2G</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="gsm-basics.html">GSM Basics: Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="edge.html">Modular EGPRS Installation Guide (Osmocom + SDR)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="osmocombb.html">OsmocomBB</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">A5/1 — GSM Ciphering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../3G/index.html">3G : UMTS/HSPA/HSPA+</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../3G/evolution.html">The evolution from 2G to 3G: the mobile internet revolution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../3G/tutorial.html">OpenBTS-UMTS Quick Install &amp; Usage (Ubuntu, USRP)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../4G/index.html">4G : LTE/LTE+</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../4G/srsran.html">Installing srsRAN 4G (via PPA or source)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../5G/index.html">5G : NSA/SA</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../5G/evolution.html">5G Evolution: Major Breakthroughs &amp; New Use Cases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../5G/tutorial.html">5G SA Lab: srsRAN Project + Open5GS (Ubuntu, 2024)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html">Q&amp;A</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../about.html">Who am I</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../fr/index-fr.html">Français - SDR Blackbook – Carnet de terrain &amp; hacks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../fr/sdr/index.html">SDR</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/sdr/what.html">Qu’est-ce qu’un SDR ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/sdr/sdr.html">Différents types de SDR</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../fr/2G/index.html">2G : GSM/GPRS/EDGE</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/2G/gsm-basics.html">Bases du GSM : Vue d’ensemble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/2G/edge.html">Guide d’installation modulaire EGPRS (Osmocom + SDR)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/2G/osmocombb.html">OsmocomBB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/2G/a51.html">A5/1 — Chiffrement GSM</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../fr/3G/index.html">3G : UMTS/HSPA/HSPA+</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/3G/evolution.html">L’évolution de la 2G vers la 3G : la révolution de l’internet mobile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/3G/tutorial.html">OpenBTS-UMTS : Installation et utilisation rapide (Ubuntu, USRP)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../fr/4G/index.html">4G : LTE/LTE+</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/4G/srsran.html">Installation de srsRAN 4G (via PPA ou sources)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../fr/5G/index.html">5G : NSA/SA</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/5G/evolution.html">L’évolution 5G : rupture technologique, nouveaux usages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/5G/tutorial.html">5G SA labo : srsRAN Project + Open5GS (Ubuntu 2024)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../fr/faq-fr.html">Q&amp;A</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fr/about-fr.html">Qui suis je</a></li>
+</ul>
+</li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../index.html">Docs</a></li>
+            <li class="breadcrumb-item"><a href="../index.html">English - SDR Blackbook – Field Notes &amp; Hacks</a></li>
+            <li class="breadcrumb-item"><a href="index.html">2G</a></li>
+        <li class="breadcrumb-item active" aria-current="page">A5/1 — GSM Ciphering</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/wagtail/sphinx_wagtail_theme/blob/main/docs/en/2G/a51.md" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../../_sources/en/2G/a51.md.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="a5-1-gsm-ciphering">
+<h1>A5/1 — GSM Ciphering<a class="headerlink" href="#a5-1-gsm-ciphering" title="Link to this heading">¶</a></h1>
+<p><strong>A5/1</strong> is the stream cipher algorithm used in GSM to provide confidentiality for radio communications between the mobile device and the BTS.</p>
+<section id="how-it-works">
+<h2>How It Works<a class="headerlink" href="#how-it-works" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Stream cipher</strong> with a 64-bit internal state (3 LFSR shift registers)</p></li>
+<li><p>Initialized using the <strong>Kc</strong> key (derived from the SIM’s Ki via the A3/A8 algorithm and the subscriber’s IMSI)</p></li>
+<li><p>Ciphering is applied in real-time, bit by bit, to voice or data</p></li>
+</ul>
+</section>
+<section id="vulnerabilities">
+<h2>Vulnerabilities<a class="headerlink" href="#vulnerabilities" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Aged design (1980s/1990s)</strong></p></li>
+<li><p>Several known attacks:</p>
+<ul>
+<li><p>Rainbow tables (time-memory tradeoff, e.g., Kraken/A5/1 project)</p></li>
+<li><p>Attacks on LFSR weaknesses and register synchronization</p></li>
+<li><p>Kc recovery if enough keystream is captured</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="open-source-tools">
+<h2>Open Source Tools<a class="headerlink" href="#open-source-tools" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://opensource.srlabs.de/projects/a51-decrypt">Kraken</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ptrkrysik/gr-gsm">gr-gsm + Airprobe</a></p></li>
+<li><p><strong>OsmocomBB</strong>: possible to inject or dump keystreams for brute-force attacks</p></li>
+</ul>
+</section>
+<section id="detection-testing">
+<h2>Detection &amp; Testing<a class="headerlink" href="#detection-testing" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>If the cell sends a “Ciphering Indicator,” some phones warn when ciphering is off</p></li>
+<li><p>Most modern networks disable A5/1, switch to A5/3, or use no ciphering at all</p></li>
+</ul>
+</section>
+<section id="learn-more">
+<h2>Learn More<a class="headerlink" href="#learn-more" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/A5/1">A5/1 on Wikipedia</a></p></li>
+<li><p><a class="reference external" href="https://media.ccc.de/v/27c3-3894-en-breaking_gsm_with_rainbow_tables">A5/1 Attacks (Karsten Nohl, CCC)</a></p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Legal note:</strong><br />
+Any attack or reverse-engineering of A5/1 is reserved for research, authorized pentesting, or legal demonstration purposes only.<br />
+<strong>Unauthorized interception is illegal</strong> in most countries.</p>
+</section>
+<hr class="docutils" />
+<section id="kraken-rainbow-tables-for-a5-1">
+<h2>Kraken — Rainbow Tables for A5/1<a class="headerlink" href="#kraken-rainbow-tables-for-a5-1" title="Link to this heading">¶</a></h2>
+<p><strong>Kraken</strong> is an open-source tool designed to brute-force the <strong>A5/1 cipher</strong> used in GSM (2G) by leveraging <strong>rainbow tables</strong> (precomputed lookup tables).</p>
+<ul class="simple">
+<li><p><strong>Goal:</strong> Recover the session key Kc from a known segment of keystream (known plaintext).</p></li>
+<li><p><strong>How it works:</strong></p>
+<ol class="arabic simple">
+<li><p>Capture A5/1 encrypted bursts (e.g., via OsmocomBB or Airprobe).</p></li>
+<li><p>If you know a part of the plaintext, you can extract the keystream.</p></li>
+<li><p>Run Kraken: it compares this keystream to its rainbow tables (several terabytes of data), and may recover the key in seconds/minutes <strong>if</strong> the keystream exists in the tables.</p></li>
+<li><p>With Kc, you can decrypt all encrypted GSM traffic (voice, SMS, etc.) for that session.</p></li>
+</ol>
+</li>
+<li><p><strong>Limitations:</strong></p>
+<ul>
+<li><p>You need a high-quality keystream (often 64 error-free bits).</p></li>
+<li><p>The tables do not cover the <em>entire</em> keyspace (success probability ~22–24% per table, up to ~50–60% with multiple sets).</p></li>
+<li><p>Extremely sensitive to any radio reception error.</p></li>
+</ul>
+</li>
+</ul>
+<p>Kraken is typically used via command line with a binary keystream file (<code class="docutils literal notranslate"><span class="pre">.kc</span></code>) and a folder containing the rainbow tables (<code class="docutils literal notranslate"><span class="pre">.bin</span></code> files, several GB to TB).</p>
+</section>
+<hr class="docutils" />
+<section id="behemoth-py-python-orchestrator-for-kraken">
+<h2>behemoth.py — Python Orchestrator for Kraken<a class="headerlink" href="#behemoth-py-python-orchestrator-for-kraken" title="Link to this heading">¶</a></h2>
+<p><strong>behemoth.py</strong> is a <strong>Python wrapper</strong> to make Kraken easier to use, automating and parallelizing the process on large datasets, clusters, or multiple CPUs/GPUs.</p>
+<ul class="simple">
+<li><p><strong>Typical features:</strong></p>
+<ul>
+<li><p>Split keystreams into blocks and run several Kraken instances in parallel.</p></li>
+<li><p>Distribute jobs across multiple machines or cores.</p></li>
+<li><p>Batch process (automated attacks on lots of captures, or with multiple tables).</p></li>
+<li><p>Logging, relaunching, handling timeouts, aggregating results.</p></li>
+<li><p>Support for cluster/cloud infrastructure (e.g., orchestrate Kraken over 8–16+ machines).</p></li>
+</ul>
+</li>
+<li><p><strong>Advantages:</strong></p>
+<ul>
+<li><p>Much faster (massive, multi-threaded, scalable attack).</p></li>
+<li><p>Can “industrialize” the process (pipelines, logs, monitoring).</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Note:</strong> behemoth.py is not an “official” part of Kraken, but a community-made tool, often adapted for specific research or CTF team workflows.</p>
+</section>
+<hr class="docutils" />
+<section id="summary-practical-usage">
+<h2>Summary — Practical Usage<a class="headerlink" href="#summary-practical-usage" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Kraken:</strong> A5/1 brute-force for GSM using rainbow tables (~8 TB for full coverage), on a single machine.</p></li>
+<li><p><strong>behemoth.py:</strong> Python pipeline that orchestrates multiple Kraken runs in parallel (batch, cluster), for industrial-scale Kc recovery.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="useful-links">
+<h2>Useful Links<a class="headerlink" href="#useful-links" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Kraken (original repo, usage guides):
+<a class="reference external" href="https://opensource.srlabs.de/projects/a51-decrypt">https://opensource.srlabs.de/projects/a51-decrypt</a>
+<a class="reference external" href="https://github.com/SCATEu/a51-lookup">https://github.com/SCATEu/a51-lookup</a> (forks)</p></li>
+<li><p>behemoth.py (community, unmaintained):
+<a class="reference external" href="https://github.com/JPaulMora/behemoth">https://github.com/JPaulMora/behemoth</a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="kraken-behemoth-py-install-usage-guide-ubuntu-22-04-24-04">
+<h2>Kraken + behemoth.py Install &amp; Usage Guide (Ubuntu 22.04/24.04)<a class="headerlink" href="#kraken-behemoth-py-install-usage-guide-ubuntu-22-04-24-04" title="Link to this heading">¶</a></h2>
+</section>
+<section id="prepare-your-system">
+<h2>1. Prepare your system<a class="headerlink" href="#prepare-your-system" title="Link to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>git<span class="w"> </span>build-essential<span class="w"> </span>cmake<span class="w"> </span>python3<span class="w"> </span>python3-pip<span class="w"> </span>libgmp-dev
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>Optional:</strong> For GPU/CUDA, you’ll need a modified Kraken build (<a class="reference external" href="https://github.com/JPaulMora/kraken-gpu">kraken-gpu</a>). Below is CPU only.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="install-kraken">
+<h2>2. Install Kraken<a class="headerlink" href="#install-kraken" title="Link to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/JPaulMora/kraken.git
+<span class="nb">cd</span><span class="w"> </span>kraken
+make
+</pre></div>
+</div>
+<blockquote>
+<div><p>You now have the <code class="docutils literal notranslate"><span class="pre">kraken</span></code> executable in the folder.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="download-or-install-the-rainbow-tables">
+<h2>3. Download or install the rainbow tables<a class="headerlink" href="#download-or-install-the-rainbow-tables" title="Link to this heading">¶</a></h2>
+<ul>
+<li><p><strong>Warning:</strong> Tables are huge (several TB).</p></li>
+<li><p>Example download (magnet link):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>magnet:?xt=urn:btih:b16e570f348f6be2fa2fbe8372e784c8e4e8e25b&amp;dn=rainbow+tables
+</pre></div>
+</div>
+</li>
+<li><p><strong>Extract everything</strong> into a folder, e.g., <code class="docutils literal notranslate"><span class="pre">/mnt/kraken_tables/</span></code>.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="install-behemoth-py">
+<h2>4. Install behemoth.py<a class="headerlink" href="#install-behemoth-py" title="Link to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/JPaulMora/behemoth.git
+<span class="nb">cd</span><span class="w"> </span>behemoth
+pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt<span class="w">  </span><span class="c1"># (if needed)</span>
+</pre></div>
+</div>
+<p><strong>Check config:</strong></p>
+<ul class="simple">
+<li><p>It works with Python 3.</p></li>
+<li><p>Adjust paths to:</p>
+<ul>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">kraken</span></code> binary</p></li>
+<li><p>Your rainbow tables folder</p></li>
+<li><p>Your <code class="docutils literal notranslate"><span class="pre">.kc</span></code> files (keystreams to crack)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="using-kraken-manual-and-with-behemoth-py">
+<h2>5. Using Kraken (manual and with behemoth.py)<a class="headerlink" href="#using-kraken-manual-and-with-behemoth-py" title="Link to this heading">¶</a></h2>
+</section>
+<section id="a-simple-kraken-usage">
+<h2>A. Simple Kraken usage<a class="headerlink" href="#a-simple-kraken-usage" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p><strong>You must have a <code class="docutils literal notranslate"><span class="pre">.kc</span></code> keystream file</strong> (e.g., from OsmocomBB/airprobe, 64 error-free bits).</p></li>
+<li><p><strong>Run Kraken:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./kraken<span class="w"> </span>my_capture.kc<span class="w"> </span>/mnt/kraken_tables/
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>It outputs the found key (or nothing if not found).</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="b-using-behemoth-py-for-batch-pipeline-parallel-mode">
+<h2>B. Using behemoth.py for batch (pipeline/parallel mode)<a class="headerlink" href="#b-using-behemoth-py-for-batch-pipeline-parallel-mode" title="Link to this heading">¶</a></h2>
+<p><strong>Minimal example:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>behemoth.py<span class="w"> </span>-k<span class="w"> </span>/path/to/kraken<span class="w"> </span>-t<span class="w"> </span>/mnt/kraken_tables/<span class="w"> </span>-i<span class="w"> </span>kc_folder/<span class="w"> </span>-j<span class="w"> </span><span class="m">8</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-k</span></code>: path to kraken executable</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-t</span></code>: rainbow tables folder</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-i</span></code>: folder with <code class="docutils literal notranslate"><span class="pre">.kc</span></code> files (batch mode)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-j</span></code>: number of jobs/threads (e.g., 8 CPUs in parallel)</p></li>
+<li><p>Results: all found Kc keys are logged/output.</p></li>
+</ul>
+<p><strong>For clusters/multiple machines:</strong></p>
+<ul class="simple">
+<li><p>There are <code class="docutils literal notranslate"><span class="pre">--slave</span></code>/<code class="docutils literal notranslate"><span class="pre">--master</span></code> modes to distribute jobs (see README in repo).</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="quick-workflow-diagram">
+<h2>6. Quick Workflow Diagram<a class="headerlink" href="#quick-workflow-diagram" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(GSM signal) → keystream extraction (.kc) → Kraken (or behemoth.py)
+                                         ↳ rainbow tables
+                                         ↳ Kc key
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="tips-best-practices">
+<h2>Tips / Best Practices<a class="headerlink" href="#tips-best-practices" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Keystream quality is <strong>CRUCIAL</strong> (no bit errors).</p></li>
+<li><p>More tables = higher chance of success (else, only partial coverage).</p></li>
+<li><p>behemoth.py = batch/cluster, Kraken = solo.</p></li>
+<li><p>Use SSD/NVMe for faster disk access.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="links">
+<h2>Links<a class="headerlink" href="#links" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/JPaulMora/kraken">Kraken</a></p></li>
+<li><p><a class="reference external" href="https://github.com/JPaulMora/behemoth">behemoth.py</a></p></li>
+<li><p><a class="reference external" href="https://opensource.srlabs.de/projects/a51-decrypt/wiki/Rainbow_Tables">SRLabs Rainbow Tables</a></p></li>
+<li><p><a class="reference external" href="https://osmocom.org/projects/baseband/wiki/A5_GSM_decryption">OsmocomBB A5/1 Attack Guide</a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="deka-install-kraken-opencl-cracker">
+<h2>Deka Install (Kraken OpenCL cracker)<a class="headerlink" href="#deka-install-kraken-opencl-cracker" title="Link to this heading">¶</a></h2>
+<section id="prerequisites">
+<h3>1. Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>OS:</strong> Debian Jessie up to Bookworm, or Ubuntu</p></li>
+<li><p><strong>GPU:</strong> AMD recommended (Nvidia possible but more patching needed)</p></li>
+<li><p><strong>Python 3</strong> (some scripts might require 2.7 as well)</p></li>
+<li><p><strong>PyOpenCL</strong></p></li>
+<li><p><strong>Disk:</strong> ≥2 TB free for tables (SSD/NVMe best)</p></li>
+<li><p><strong>Packages:</strong></p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>build-essential<span class="w"> </span>python3-pip<span class="w"> </span>python3-dev<span class="w"> </span>ocl-icd-libopencl1<span class="w"> </span>opencl-headers<span class="w"> </span>clinfo
+pip3<span class="w"> </span>install<span class="w"> </span>pyopencl
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="clone-the-code">
+<h3>2. Clone the Code<a class="headerlink" href="#clone-the-code" title="Link to this heading">¶</a></h3>
+<p>Recommended fork (patched for modern systems):</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/0x7678/typhon-vx/tree/master/kraken">https://github.com/0x7678/typhon-vx/tree/master/kraken</a></p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/0x7678/typhon-vx.git
+<span class="nb">cd</span><span class="w"> </span>typhon-vx/kraken
+</pre></div>
+</div>
+<p><em>(Originals if you want to compare, not required:)</em></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>http://jenda.hrach.eu/p/deka
+git<span class="w"> </span>clone<span class="w"> </span>git://git.srlabs.de/kraken
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="download-the-rainbow-tables">
+<h3>3. Download the Rainbow Tables<a class="headerlink" href="#download-the-rainbow-tables" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Size:</strong> ~1.7 TB (40 <code class="docutils literal notranslate"><span class="pre">.dlt</span></code> files)</p></li>
+<li><p><strong>Torrent / Direct Download:</strong></p>
+<ul>
+<li><p>TMTO SRLabs project, look for “A5/1 tables”
+<a class="reference external" href="https://opensource.srlabs.de/projects/a51-decrypt">https://opensource.srlabs.de/projects/a51-decrypt</a></p></li>
+<li><p>MD5 checksums:
+<a class="reference external" href="http://jenda.hrach.eu/f2/tables.txt">http://jenda.hrach.eu/f2/tables.txt</a></p></li>
+</ul>
+</li>
+<li><p><strong>Other:</strong> Get from a friend, or exchange drives in person (e.g. brmlab in Prague)</p></li>
+</ul>
+<p><em>Store the tables on a dedicated disk, preferably ext4/xfs, or write directly to a block device for max speed.</em></p>
+</section>
+<hr class="docutils" />
+<section id="install-the-tables">
+<h3>4. Install the Tables<a class="headerlink" href="#install-the-tables" title="Link to this heading">¶</a></h3>
+<p><strong>Option 1 – File mode (simplest, less performance):</strong></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>./TableConvert<span class="w"> </span>di<span class="w"> </span>/mnt/tables/gsm/100.dlt<span class="w"> </span><span class="m">100</span>.ins:0<span class="w"> </span><span class="m">100</span>.idx
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/mnt/tables/gsm/100.dlt</span></code>: source table file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">100.ins:0</span></code>: destination file (with offset)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">100.idx</span></code>: destination index file</p></li>
+</ul>
+<p><strong>Option 2 – Direct block device (best performance):</strong></p>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">install.py</span></code> to write tables directly to a raw device (danger: triple check your device path!)</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="configure-deka">
+<h3>5. Configure Deka<a class="headerlink" href="#configure-deka" title="Link to this heading">¶</a></h3>
+<p>Edit <code class="docutils literal notranslate"><span class="pre">delta_config.h</span></code>:</p>
+<ul class="simple">
+<li><p>Set correct paths to the tables, index files, and offsets (from your generated <code class="docutils literal notranslate"><span class="pre">tables.conf</span></code>)</p></li>
+<li><p><strong>TIP:</strong> Use <code class="docutils literal notranslate"><span class="pre">/dev/disk/by-uuid/</span></code> or absolute paths—<strong>never</strong> <code class="docutils literal notranslate"><span class="pre">/dev/sdX</span></code>, as device names can change after reboot!</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define TABLE_DEV &quot;/dev/disk/by-uuid/XXXX-YYYY&quot;</span>
+<span class="cp">#define TABLE_IDX &quot;/mnt/tables/gsm/100.idx&quot;</span>
+<span class="cp">#define TABLE_OFF 0</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="generate-opencl-kernel">
+<h3>6. Generate OpenCL Kernel<a class="headerlink" href="#generate-opencl-kernel" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>AMD:</strong> use <code class="docutils literal notranslate"><span class="pre">genkernel32.sh</span></code> (recommended)</p></li>
+<li><p><strong>Nvidia:</strong> you <em>may</em> need to patch “unsigned long long” → “ulong”</p></li>
+<li><p><strong>32 or 64 bit:</strong> generates a custom <code class="docutils literal notranslate"><span class="pre">slice.c</span></code> (adjust vankusconf.h/vankusconf.py if you switch to 64 bit)</p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>./genkernel32.sh<span class="w"> </span>&gt;<span class="w"> </span>slice.c
+<span class="c1"># or</span>
+./genkernel64.sh<span class="w"> </span>&gt;<span class="w"> </span>slice.c
+</pre></div>
+</div>
+<p><em>If you get errors with “unsigned long long”, replace it in code with:</em></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">ulong</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="n">mask</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="n">ulong</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xFFFFFFFFFFFFFFFF</span><span class="p">;</span>
+<span class="k">if</span><span class="p">(</span><span class="n">diff</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">all</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="kernel-tuning-vankusconf-py-h">
+<h3>7. Kernel Tuning (vankusconf.py/.h)<a class="headerlink" href="#kernel-tuning-vankusconf-py-h" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Concurrent kernels:</strong> (GPU cores - 1) × small integer. Example: 4095 for 2048 GPU cores.</p></li>
+<li><p><strong>QSIZE:</strong> Set to about 2× the number of fragments processed in parallel.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="run-deka-kraken">
+<h3>8. Run Deka / Kraken<a class="headerlink" href="#run-deka-kraken" title="Link to this heading">¶</a></h3>
+<p><strong>Manual startup (best for first time/debug):</strong></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>paplon.py
+python3<span class="w"> </span>oclvankus.py<span class="w">   </span><span class="c1"># (run once per OpenCL device; it will prompt for the device)</span>
+python3<span class="w"> </span>delta_client.py
+</pre></div>
+</div>
+<p><strong>Auto (prod):</strong></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>./init.sh
+</pre></div>
+</div>
+<p><strong>PYOPENCL_CTX:</strong>
+To avoid device selection prompt:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">PYOPENCL_CTX</span><span class="o">=</span><span class="s2">&quot;0:0&quot;</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="connect-test-crack">
+<h3>9. Connect &amp; Test Crack<a class="headerlink" href="#connect-test-crack" title="Link to this heading">¶</a></h3>
+<p>Connect to the Deka (paplon) server:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>telnet<span class="w"> </span>localhost<span class="w"> </span><span class="m">1578</span>
+</pre></div>
+</div>
+<p>Test with a sample A5/1 burst:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>crack<span class="w"> </span><span class="m">00111000</span>...<span class="w">   </span><span class="c1"># (insert known burst)</span>
+<span class="c1"># Output:</span>
+<span class="c1"># Found 44D85D82BAF275B4 @ 2 #0 (table:412)</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="monitoring-performance-tuning">
+<h3>10. Monitoring &amp; Performance Tuning<a class="headerlink" href="#monitoring-performance-tuning" title="Link to this heading">¶</a></h3>
+<p>In telnet, type <code class="docutils literal notranslate"><span class="pre">stats</span></code> to check burst queue sizes.</p>
+<ul class="simple">
+<li><p>If bottleneck = storage: upgrade to SSD/NVMe, direct device, or async IO.</p></li>
+<li><p>If bottleneck = compute: tune kernel (loop unrolling, kernel iterations, concurrent kernels, etc).</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="quick-cheatsheet">
+<h3>Quick cheatsheet<a class="headerlink" href="#quick-cheatsheet" title="Link to this heading">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Dependencies</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>build-essential<span class="w"> </span>python3-pip<span class="w"> </span>ocl-icd-libopencl1<span class="w"> </span>opencl-headers<span class="w"> </span>clinfo
+pip3<span class="w"> </span>install<span class="w"> </span>pyopencl
+
+<span class="c1"># 2. Clone code</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/0x7678/typhon-vx.git
+<span class="nb">cd</span><span class="w"> </span>typhon-vx/kraken
+
+<span class="c1"># 3. Download tables (~1.7TB)</span>
+
+<span class="c1"># 4. Install tables (TableConvert or install.py)</span>
+
+<span class="c1"># 5. Edit delta_config.h (absolute paths/UUIDs)</span>
+
+<span class="c1"># 6. Generate kernel: ./genkernel32.sh &gt; slice.c</span>
+
+<span class="c1"># 7. Start: paplon.py, oclvankus.py, delta_client.py</span>
+
+<span class="c1"># 8. Connect: telnet localhost 1578, command &quot;crack&quot;</span>
+
+<span class="c1"># 9. Tune (stats, kernel, storage)</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p><strong>Notes &amp; Tips</strong></p>
+<ul class="simple">
+<li><p>Don’t run as root unless you need raw disk access</p></li>
+<li><p>All scripts and kernels are modifiable (fragments, tuning, debug)</p></li>
+<li><p>For troubleshooting or performance, check GitHub Issues, SRLabs forums, brmlab, or GSM hacking Discords</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="osmocombb.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span>OsmocomBB
+    </a>
+    <a class="float-right" href="../3G/index.html" title="Next">
+        3G : UMTS/HSPA/HSPA+ <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">A5/1 — GSM Ciphering</a><ul>
+<li><a class="reference internal" href="#how-it-works">How It Works</a></li>
+<li><a class="reference internal" href="#vulnerabilities">Vulnerabilities</a></li>
+<li><a class="reference internal" href="#open-source-tools">Open Source Tools</a></li>
+<li><a class="reference internal" href="#detection-testing">Detection &amp; Testing</a></li>
+<li><a class="reference internal" href="#learn-more">Learn More</a></li>
+<li><a class="reference internal" href="#kraken-rainbow-tables-for-a5-1">Kraken — Rainbow Tables for A5/1</a></li>
+<li><a class="reference internal" href="#behemoth-py-python-orchestrator-for-kraken">behemoth.py — Python Orchestrator for Kraken</a></li>
+<li><a class="reference internal" href="#summary-practical-usage">Summary — Practical Usage</a></li>
+<li><a class="reference internal" href="#useful-links">Useful Links</a></li>
+<li><a class="reference internal" href="#kraken-behemoth-py-install-usage-guide-ubuntu-22-04-24-04">Kraken + behemoth.py Install &amp; Usage Guide (Ubuntu 22.04/24.04)</a></li>
+<li><a class="reference internal" href="#prepare-your-system">1. Prepare your system</a></li>
+<li><a class="reference internal" href="#install-kraken">2. Install Kraken</a></li>
+<li><a class="reference internal" href="#download-or-install-the-rainbow-tables">3. Download or install the rainbow tables</a></li>
+<li><a class="reference internal" href="#install-behemoth-py">4. Install behemoth.py</a></li>
+<li><a class="reference internal" href="#using-kraken-manual-and-with-behemoth-py">5. Using Kraken (manual and with behemoth.py)</a></li>
+<li><a class="reference internal" href="#a-simple-kraken-usage">A. Simple Kraken usage</a></li>
+<li><a class="reference internal" href="#b-using-behemoth-py-for-batch-pipeline-parallel-mode">B. Using behemoth.py for batch (pipeline/parallel mode)</a></li>
+<li><a class="reference internal" href="#quick-workflow-diagram">6. Quick Workflow Diagram</a></li>
+<li><a class="reference internal" href="#tips-best-practices">Tips / Best Practices</a></li>
+<li><a class="reference internal" href="#links">Links</a></li>
+<li><a class="reference internal" href="#deka-install-kraken-opencl-cracker">Deka Install (Kraken OpenCL cracker)</a><ul>
+<li><a class="reference internal" href="#prerequisites">1. Prerequisites</a></li>
+<li><a class="reference internal" href="#clone-the-code">2. Clone the Code</a></li>
+<li><a class="reference internal" href="#download-the-rainbow-tables">3. Download the Rainbow Tables</a></li>
+<li><a class="reference internal" href="#install-the-tables">4. Install the Tables</a></li>
+<li><a class="reference internal" href="#configure-deka">5. Configure Deka</a></li>
+<li><a class="reference internal" href="#generate-opencl-kernel">6. Generate OpenCL Kernel</a></li>
+<li><a class="reference internal" href="#kernel-tuning-vankusconf-py-h">7. Kernel Tuning (vankusconf.py/.h)</a></li>
+<li><a class="reference internal" href="#run-deka-kraken">8. Run Deka / Kraken</a></li>
+<li><a class="reference internal" href="#connect-test-crack">9. Connect &amp; Test Crack</a></li>
+<li><a class="reference internal" href="#monitoring-performance-tuning">10. Monitoring &amp; Performance Tuning</a></li>
+<li><a class="reference internal" href="#quick-cheatsheet">Quick cheatsheet</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/features/">Features</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/about-wagtail/"> About Wagtail</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/services/"> Services</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/blog/"> Blog</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/packages/"> Packages</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/developers/"> Developers</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2025, Bastien Baranoff
+            </div>
+            <div class="text-center text-white-50 font-italic mt-3">
+                <small>
+                    Created using
+                    <a class="text-white" href="https://github.com/wagtail/sphinx_wagtail_theme" rel="nofollow" target="_blank">
+                        Sphinx Wagtail Theme 6.5.0
+                    </a>
+                    and
+                    <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
+                        Sphinx 8.2.3
+                    </a>
+                </small>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../_static/documentation_options.js?v=29a6c3e3"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script type="text/javascript" src="../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

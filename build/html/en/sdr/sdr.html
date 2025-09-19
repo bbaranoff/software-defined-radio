@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-content_root="../../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>Different kind of SDR &mdash; Software Defined Radio 1 documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+            <link rel="index" title="Index" href="../../genindex.html" />
+            <link rel="search" title="Search" href="../../search.html" />
+            <link rel="top" title="Software Defined Radio 1 documentation" href="#" />
+            <link rel="up" title="SDR" href="index.html" />
+            <link rel="next" title="2G" href="../2G/index.html" />
+            <link rel="prev" title="What is an SDR?" href="what.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="../../index.html"
+                        title="Wagtail"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../../_static/img/wagtail-logo-circle.svg" width="45" height="59" alt="Wagtail"
+                            class="logo-img"
+                        />
+                        Sphinx Wagtail Theme
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">English - SDR Blackbook – Field Notes &amp; Hacks</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">SDR</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="what.html">What is an SDR?</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Different kind of SDR</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../2G/index.html">2G</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../2G/gsm-basics.html">GSM Basics: Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2G/edge.html">Modular EGPRS Installation Guide (Osmocom + SDR)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2G/osmocombb.html">OsmocomBB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2G/a51.html">A5/1 — GSM Ciphering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../3G/index.html">3G : UMTS/HSPA/HSPA+</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../3G/evolution.html">The evolution from 2G to 3G: the mobile internet revolution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../3G/tutorial.html">OpenBTS-UMTS Quick Install &amp; Usage (Ubuntu, USRP)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../4G/index.html">4G : LTE/LTE+</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../4G/srsran.html">Installing srsRAN 4G (via PPA or source)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../5G/index.html">5G : NSA/SA</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../5G/evolution.html">5G Evolution: Major Breakthroughs &amp; New Use Cases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../5G/tutorial.html">5G SA Lab: srsRAN Project + Open5GS (Ubuntu, 2024)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html">Q&amp;A</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../about.html">Who am I</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../fr/index-fr.html">Français - SDR Blackbook – Carnet de terrain &amp; hacks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../fr/sdr/index.html">SDR</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/sdr/what.html">Qu’est-ce qu’un SDR ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/sdr/sdr.html">Différents types de SDR</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../fr/2G/index.html">2G : GSM/GPRS/EDGE</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/2G/gsm-basics.html">Bases du GSM : Vue d’ensemble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/2G/edge.html">Guide d’installation modulaire EGPRS (Osmocom + SDR)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/2G/osmocombb.html">OsmocomBB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/2G/a51.html">A5/1 — Chiffrement GSM</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../fr/3G/index.html">3G : UMTS/HSPA/HSPA+</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/3G/evolution.html">L’évolution de la 2G vers la 3G : la révolution de l’internet mobile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/3G/tutorial.html">OpenBTS-UMTS : Installation et utilisation rapide (Ubuntu, USRP)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../fr/4G/index.html">4G : LTE/LTE+</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/4G/srsran.html">Installation de srsRAN 4G (via PPA ou sources)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../fr/5G/index.html">5G : NSA/SA</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/5G/evolution.html">L’évolution 5G : rupture technologique, nouveaux usages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/5G/tutorial.html">5G SA labo : srsRAN Project + Open5GS (Ubuntu 2024)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../fr/faq-fr.html">Q&amp;A</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fr/about-fr.html">Qui suis je</a></li>
+</ul>
+</li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../index.html">Docs</a></li>
+            <li class="breadcrumb-item"><a href="../index.html">English - SDR Blackbook – Field Notes &amp; Hacks</a></li>
+            <li class="breadcrumb-item"><a href="index.html">SDR</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Different kind of SDR</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/wagtail/sphinx_wagtail_theme/blob/main/docs/en/sdr/sdr.md" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../../_sources/en/sdr/sdr.md.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="different-kind-of-sdr">
+<h1>Different kind of SDR<a class="headerlink" href="#different-kind-of-sdr" title="Link to this heading">¶</a></h1>
+<section id="sdrs-comparison-chart-specs-price-2025">
+<h2>SDRs Comparison Chart (Specs + Price, 2025)<a class="headerlink" href="#sdrs-comparison-chart-specs-price-2025" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>SDR (Model)</strong></p></th>
+<th class="head"><p><strong>RF Range</strong></p></th>
+<th class="head"><p><strong>Tx/Rx</strong></p></th>
+<th class="head"><p><strong>Instant BW</strong></p></th>
+<th class="head"><p><strong>FPGA/Chipset</strong></p></th>
+<th class="head"><p><strong>Interface</strong></p></th>
+<th class="head"><p><strong>Notable Features</strong></p></th>
+<th class="head"><p><strong>Approx Price*</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>RTL‑SDR V3</strong></p></td>
+<td><p>500 kHz–1.7 GHz</p></td>
+<td><p>Rx only</p></td>
+<td><p>~2.4 MHz</p></td>
+<td><p>RTL2832U + R820T2</p></td>
+<td><p>USB 2.0</p></td>
+<td><p>Super cheap, receive only, huge ecosystem</p></td>
+<td><p>$30–40 (€30–40)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>ADALM‑PLUTO (PlutoSDR)</strong></p></td>
+<td><p>325 MHz–3.8 GHz (mod to ~70–6000 MHz)</p></td>
+<td><p>1Tx / 1Rx (full)</p></td>
+<td><p>20 MHz</p></td>
+<td><p>Zynq Z-7010 + AD9363</p></td>
+<td><p>USB 2.0</p></td>
+<td><p>Ultra compact, hackable, educational</p></td>
+<td><p>$230–250 (€230–250); France: ~€350</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>LimeSDR Mini 2.0</strong></p></td>
+<td><p>~10 MHz–3.5 GHz</p></td>
+<td><p>1Tx / 1Rx</p></td>
+<td><p>40 MHz</p></td>
+<td><p>Lattice ECP5 + LMS7002M</p></td>
+<td><p>USB 3.0</p></td>
+<td><p>Low latency, advanced DSP, open source</p></td>
+<td><p>$440 (~€410)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>HackRF One</strong></p></td>
+<td><p>1 MHz–6 GHz</p></td>
+<td><p>1Tx / 1Rx (half)</p></td>
+<td><p>20 MHz</p></td>
+<td><p>MAX2837/2839</p></td>
+<td><p>USB 2.0</p></td>
+<td><p>Open source, hacking, popular, DIY crowd</p></td>
+<td><p>$320–350 (~€320–350)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>BladeRF 2.0 Micro xA4</strong></p></td>
+<td><p>~47 MHz–6 GHz</p></td>
+<td><p>1Tx / 1Rx (full)</p></td>
+<td><p>56 MHz</p></td>
+<td><p>Intel Cyclone V FPGA + LMS7002M</p></td>
+<td><p>USB 3.0</p></td>
+<td><p>Powerful, wideband, strong dev community</p></td>
+<td><p>€649 (~$700)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>AntSDR E200/E310</strong></p></td>
+<td><p>70 MHz–6 GHz (AD9361/63)</p></td>
+<td><p>2Tx / 2Rx (full)</p></td>
+<td><p>56–61.44 MHz</p></td>
+<td><p>Zynq-7020 + AD9361/63</p></td>
+<td><p>Ethernet, USB</p></td>
+<td><p>MIMO 2x2, open HW/SW, flexible</p></td>
+<td><p>€317 (AD9363)<br>€472 (AD9361)<br>eBay: $475–800</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>LibreSDR B210/B220 Mini</strong></p></td>
+<td><p>70 MHz–6 GHz</p></td>
+<td><p>2Tx / 2Rx (full)</p></td>
+<td><p>~56 MHz</p></td>
+<td><p>FPGA + AD9361/63</p></td>
+<td><p>USB 3.0</p></td>
+<td><p>USRP B210 compatible, ultra-compact</p></td>
+<td><p>€369</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>USRP B210</strong></p></td>
+<td><p>70 MHz–6 GHz</p></td>
+<td><p>2Tx / 2Rx (full)</p></td>
+<td><p>56 MHz</p></td>
+<td><p>Spartan-6 + AD9361</p></td>
+<td><p>USB 3.0</p></td>
+<td><p>Lab/edu reference, UHD, rugged</p></td>
+<td><p>$2,165 (~€2,000)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>USRP X310</strong></p></td>
+<td><p>10 MHz–6 GHz* (modular)</p></td>
+<td><p>2Tx / 2Rx (full)</p></td>
+<td><p>160 MHz</p></td>
+<td><p>Kintex-7, modular RF</p></td>
+<td><p>1/10 GbE, PCIe</p></td>
+<td><p>Research/pro, extreme bandwidth, modular</p></td>
+<td><p>$10,396–11,435</p></td>
+</tr>
+</tbody>
+</table>
+<p>*Prices are for new, board-only units, no taxes/shipping, 2025; actual may vary.</p>
+<p><strong>Legend:</strong></p>
+<ul class="simple">
+<li><p><em>Full</em> = full duplex Tx+Rx.</p></li>
+<li><p><em>Half</em> = half duplex (Tx or Rx, not at the same time).</p></li>
+</ul>
+</section>
+<section id="usage-balance-points-mirror-equilibrate-view">
+<h2>Usage “Balance Points” (Mirror/Equilibrate View)<a class="headerlink" href="#usage-balance-points-mirror-equilibrate-view" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>ADALM-PLUTO, HackRF</strong>: Entry level, best for education, hacking, prototyping, limited by instant bandwidth and duplex.</p></li>
+<li><p><strong>LimeSDR Mini, BladeRF</strong>: More powerful, USB 3.0, real DSP/FPGA resources, hobby + serious prototyping.</p></li>
+<li><p><strong>AntSDR, LibreSDR</strong>: Superb value for 2x2 MIMO, ideal for advanced research, flexible, open source.</p></li>
+<li><p><strong>USRP B210/X310</strong>: Reference platforms for research, labs, pro dev, expensive but ultimate performance (esp. X310).</p></li>
+</ul>
+<hr class="docutils" />
+<div style="display: flex; flex-wrap: wrap; gap: 18px; justify-content: flex-start; align-items: flex-start;">
+<a href="https://www.rtl-sdr.com/buy-rtl-sdr-dvb-t-dongles/" style="text-align:center">
+  <img src="https://www.rtl-sdr.com/wp-content/uploads/2023/03/improvements_v3.jpg" alt="RTL-SDR V3" width="220"/><br>
+  <b>RTL‑SDR V3</b>
+</a>
+<a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/adalm-pluto.html" style="text-align:center">
+  <img src="https://www.analog.com/en/_/media/analog/en/evaluation-board-images/images/adalm-pluto-web.gif" alt="ADALM-PLUTO PlutoSDR" width="220"/><br>
+  <b>ADALM-PLUTO</b>
+</a>
+<a href="https://www.crowdsupply.com/lime-micro/limesdr-mini-2-0" style="text-align:center">
+  <img src="https://www.crowdsupply.com/img/2829/6b51f129-f3e4-4963-ba6f-70c17ffc2829/limesdr-mini-2-prototype-top-bottom-1_jpg_gallery-lg.jpg" alt="LimeSDR Mini 2.0" width="220"/><br>
+  <b>LimeSDR Mini 2.0</b>
+</a>
+<a href="https://greatscottgadgets.com/hackrf/" style="text-align:center">
+  <img src="https://greatscottgadgets.com/images/h1-preliminary1-445.jpeg" alt="HackRF One" width="220"/><br>
+  <b>HackRF One</b>
+</a>
+<a href="https://lab401.com/products/bladerf-sdr-2-micro-xa4" style="text-align:center">
+  <img src="https://lab401.com/cdn/shop/products/BladeRF-Starter-Pack-Resized_521x284.png" alt="BladeRF 2.0 Micro xA4" width="220"/><br>
+  <b>BladeRF 2.0 Micro xA4</b>
+</a>
+<a href="https://www.crowdsupply.com/microphase-technology/antsdr-e200" style="text-align:center">
+  <img src="https://www.crowdsupply.com/img/6233/8e9bd1c8-8003-40bf-b73e-3c27d58a6233/antsdr-e200-front-back-01_jpg_gallery-lg.jpg" alt="AntSDR E200" width="220"/><br>
+  <b>AntSDR E200 / E310</b>
+</a>
+<a href="https://www.sdrstore.eu/software-defined-radio/instruments/usrp/libresdr-b210-mini-b220-mini-2r2t-xc7a200tad9361-or-xc7a100tad9363-sdr-uhd-pluto-oai-compatible.html" style="text-align:center">
+  <img src="https://www.sdrstore.eu/images/ab__webp/detailed/13/download_-_2025-06-26T180436.230_jpg.webp" alt="LibreSDR B210 Mini" width="220"/><br>
+  <b>LibreSDR B210/B220 Mini</b>
+</a>
+<a href="https://www.ettus.com/all-products/ub210-kit/" style="text-align:center">
+  <img src="https://www.ettus.com/wp-content/uploads/2019/01/B210_Board-Large_2.jpg" alt="USRP B210" width="220"/><br>
+  <b>USRP B210</b>
+</a>
+<a href="https://www.ettus.com/all-products/x310-kit/" style="text-align:center">
+  <img src="https://www.ettus.com/wp-content/uploads/2024/10/NI-Ettus-X310.jpeg" alt="USRP X310" width="220"/><br>
+  <b>USRP X310</b>
+</a>
+</div>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="what.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span>What is an SDR?
+    </a>
+    <a class="float-right" href="../2G/index.html" title="Next">
+        2G <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">Different kind of SDR</a><ul>
+<li><a class="reference internal" href="#sdrs-comparison-chart-specs-price-2025">SDRs Comparison Chart (Specs + Price, 2025)</a></li>
+<li><a class="reference internal" href="#usage-balance-points-mirror-equilibrate-view">Usage “Balance Points” (Mirror/Equilibrate View)</a></li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/features/">Features</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/about-wagtail/"> About Wagtail</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/services/"> Services</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/blog/"> Blog</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/packages/"> Packages</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/developers/"> Developers</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2025, Bastien Baranoff
+            </div>
+            <div class="text-center text-white-50 font-italic mt-3">
+                <small>
+                    Created using
+                    <a class="text-white" href="https://github.com/wagtail/sphinx_wagtail_theme" rel="nofollow" target="_blank">
+                        Sphinx Wagtail Theme 6.5.0
+                    </a>
+                    and
+                    <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
+                        Sphinx 8.2.3
+                    </a>
+                </small>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../_static/documentation_options.js?v=29a6c3e3"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script type="text/javascript" src="../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

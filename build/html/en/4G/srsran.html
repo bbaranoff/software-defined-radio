@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-content_root="../../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>Installing srsRAN 4G (via PPA or source) &mdash; Software Defined Radio 1 documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+            <link rel="index" title="Index" href="../../genindex.html" />
+            <link rel="search" title="Search" href="../../search.html" />
+            <link rel="top" title="Software Defined Radio 1 documentation" href="#" />
+            <link rel="up" title="4G : LTE/LTE+" href="index.html" />
+            <link rel="next" title="5G : NSA/SA" href="../5G/index.html" />
+            <link rel="prev" title="4G : LTE/LTE+" href="index.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="../../index.html"
+                        title="Wagtail"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../../_static/img/wagtail-logo-circle.svg" width="45" height="59" alt="Wagtail"
+                            class="logo-img"
+                        />
+                        Sphinx Wagtail Theme
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">English - SDR Blackbook – Field Notes &amp; Hacks</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../sdr/index.html">SDR</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sdr/what.html">What is an SDR?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdr/sdr.html">Different kind of SDR</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../2G/index.html">2G</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../2G/gsm-basics.html">GSM Basics: Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2G/edge.html">Modular EGPRS Installation Guide (Osmocom + SDR)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2G/osmocombb.html">OsmocomBB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2G/a51.html">A5/1 — GSM Ciphering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../3G/index.html">3G : UMTS/HSPA/HSPA+</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../3G/evolution.html">The evolution from 2G to 3G: the mobile internet revolution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../3G/tutorial.html">OpenBTS-UMTS Quick Install &amp; Usage (Ubuntu, USRP)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">4G : LTE/LTE+</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Installing srsRAN 4G (via PPA or source)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../5G/index.html">5G : NSA/SA</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../5G/evolution.html">5G Evolution: Major Breakthroughs &amp; New Use Cases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../5G/tutorial.html">5G SA Lab: srsRAN Project + Open5GS (Ubuntu, 2024)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html">Q&amp;A</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../about.html">Who am I</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../fr/index-fr.html">Français - SDR Blackbook – Carnet de terrain &amp; hacks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../fr/sdr/index.html">SDR</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/sdr/what.html">Qu’est-ce qu’un SDR ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/sdr/sdr.html">Différents types de SDR</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../fr/2G/index.html">2G : GSM/GPRS/EDGE</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/2G/gsm-basics.html">Bases du GSM : Vue d’ensemble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/2G/edge.html">Guide d’installation modulaire EGPRS (Osmocom + SDR)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/2G/osmocombb.html">OsmocomBB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/2G/a51.html">A5/1 — Chiffrement GSM</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../fr/3G/index.html">3G : UMTS/HSPA/HSPA+</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/3G/evolution.html">L’évolution de la 2G vers la 3G : la révolution de l’internet mobile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/3G/tutorial.html">OpenBTS-UMTS : Installation et utilisation rapide (Ubuntu, USRP)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../fr/4G/index.html">4G : LTE/LTE+</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/4G/srsran.html">Installation de srsRAN 4G (via PPA ou sources)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../fr/5G/index.html">5G : NSA/SA</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/5G/evolution.html">L’évolution 5G : rupture technologique, nouveaux usages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/5G/tutorial.html">5G SA labo : srsRAN Project + Open5GS (Ubuntu 2024)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../fr/faq-fr.html">Q&amp;A</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fr/about-fr.html">Qui suis je</a></li>
+</ul>
+</li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../index.html">Docs</a></li>
+            <li class="breadcrumb-item"><a href="../index.html">English - SDR Blackbook – Field Notes &amp; Hacks</a></li>
+            <li class="breadcrumb-item"><a href="index.html">4G : LTE/LTE+</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Installing srsRAN 4G (via PPA or source)</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/wagtail/sphinx_wagtail_theme/blob/main/docs/en/4G/srsran.md" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../../_sources/en/4G/srsran.md.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="installing-srsran-4g-via-ppa-or-source">
+<h1>Installing srsRAN 4G (via PPA or source)<a class="headerlink" href="#installing-srsran-4g-via-ppa-or-source" title="Link to this heading">¶</a></h1>
+<section id="quick-install-via-ppa-ubuntu">
+<h2>1. Quick Install via PPA (Ubuntu)<a class="headerlink" href="#quick-install-via-ppa-ubuntu" title="Link to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>software-properties-common
+sudo<span class="w"> </span>add-apt-repository<span class="w"> </span>ppa:srsran/ppa
+sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>srsran
+</pre></div>
+</div>
+<p><strong>Check the install:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>srsenb<span class="w"> </span>--version
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="building-from-source">
+<h2>2. Building from Source<a class="headerlink" href="#building-from-source" title="Link to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>git<span class="w"> </span>cmake<span class="w"> </span>build-essential<span class="w"> </span>libfftw3-dev<span class="w"> </span>libmbedtls-dev<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>libboost-program-options-dev<span class="w"> </span>libconfig++-dev<span class="w"> </span>libsctp-dev<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>libuhd-dev<span class="w"> </span>libpcsclite-dev<span class="w"> </span>pkg-config<span class="w"> </span>python3<span class="w"> </span>python3-pip
+
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/srsran/srsRAN_Project.git
+<span class="nb">cd</span><span class="w"> </span>srsRAN_Project
+mkdir<span class="w"> </span>build<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
+cmake<span class="w"> </span>../
+make<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="k">)</span>
+sudo<span class="w"> </span>make<span class="w"> </span>install
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="generate-configure-a-sim-imsi-ki-opc">
+<h2>3. Generate/Configure a SIM (IMSI, Ki, OPC)<a class="headerlink" href="#generate-configure-a-sim-imsi-ki-opc" title="Link to this heading">¶</a></h2>
+<p>To connect a real phone or software UE, you need a SIM whose parameters are known to the <strong>srsEPC</strong> core.</p>
+</section>
+<section id="a-generate-a-standard-sim-profile">
+<h2>a. Generate a standard SIM profile<a class="headerlink" href="#a-generate-a-standard-sim-profile" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>IMSI</strong>: unique identifier (e.g., <code class="docutils literal notranslate"><span class="pre">001010123456789</span></code>)</p></li>
+<li><p><strong>Ki</strong>: 16-byte key (e.g., <code class="docutils literal notranslate"><span class="pre">00112233445566778899aabbccddeeff</span></code>)</p></li>
+<li><p><strong>OPC</strong>: 16-byte operator key (e.g., <code class="docutils literal notranslate"><span class="pre">0102030405060708090a0b0c0d0e0f10</span></code>)</p></li>
+<li><p><strong>MSISDN</strong> (optional): virtual phone number</p></li>
+</ul>
+<p>You can use an online generator (<a class="reference external" href="https://free5gc.org/webconsole/sim.html">Free5GC SIM Generator</a>), or generate random values:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate a random IMSI</span>
+<span class="nv">IMSI</span><span class="o">=</span><span class="s2">&quot;001010</span><span class="k">$(</span>shuf<span class="w"> </span>-i<span class="w"> </span><span class="m">100000000</span>-999999999<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="c1"># Generate Ki and OPC keys</span>
+<span class="nv">KI</span><span class="o">=</span><span class="k">$(</span>openssl<span class="w"> </span>rand<span class="w"> </span>-hex<span class="w"> </span><span class="m">16</span><span class="k">)</span>
+<span class="nv">OPC</span><span class="o">=</span><span class="k">$(</span>openssl<span class="w"> </span>rand<span class="w"> </span>-hex<span class="w"> </span><span class="m">16</span><span class="k">)</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;IMSI: </span><span class="nv">$IMSI</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;KI:   </span><span class="nv">$KI</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;OPC:  </span><span class="nv">$OPC</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="b-add-the-subscriber-to-srsepc">
+<h2>b. Add the subscriber to srsEPC<a class="headerlink" href="#b-add-the-subscriber-to-srsepc" title="Link to this heading">¶</a></h2>
+<p>Open the subscriber config file, typically:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nano<span class="w"> </span>/etc/srsran/epc_user_db.csv
+</pre></div>
+</div>
+<p>Or in your local folder: <code class="docutils literal notranslate"><span class="pre">srsRAN_Project/config/user_db.csv</span></code></p>
+<p><strong>Sample entry:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">IMSI</span><span class="p">,</span>  <span class="n">Ki</span><span class="p">,</span>                       <span class="n">OPC</span><span class="p">,</span>                      <span class="n">MSISDN</span><span class="p">,</span>     <span class="n">AMF</span><span class="p">,</span>   <span class="n">SQN</span>
+<span class="mi">001010123456789</span><span class="p">,</span><span class="mi">00112233445566778899</span><span class="n">aabbccddeeff</span><span class="p">,</span><span class="mi">0102030405060708090</span><span class="n">a0b0c0d0e0f10</span><span class="p">,</span><span class="mi">1234567890</span><span class="p">,</span><span class="mi">8000</span><span class="p">,</span><span class="mi">000000</span>
+</pre></div>
+</div>
+<p><strong>Required fields</strong>: IMSI, Ki, OPC (others can be left as default if not needed).</p>
+</section>
+<hr class="docutils" />
+<section id="program-a-real-sim-card-optional">
+<h2>4. Program a real SIM card (optional)<a class="headerlink" href="#program-a-real-sim-card-optional" title="Link to this heading">¶</a></h2>
+<p>If you use a programmable SIM card (Sysmocom, MagicSIM, etc.):</p>
+<ul class="simple">
+<li><p>Use <a class="reference external" href="https://github.com/osmocom/pysim">pySIM</a> (Python)</p></li>
+<li><p>Run:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pysim-prog.py<span class="w"> </span>--ki<span class="w"> </span><span class="nv">$KI</span><span class="w"> </span>--opc<span class="w"> </span><span class="nv">$OPC</span><span class="w"> </span>--imsi<span class="w"> </span><span class="nv">$IMSI</span>
+</pre></div>
+</div>
+<p>(Adapt the command to your reader and card model.)</p>
+</section>
+<hr class="docutils" />
+<section id="start-srsenb-enodeb-and-srsepc-core">
+<h2>5. Start srsENB (eNodeB) and srsEPC (core)<a class="headerlink" href="#start-srsenb-enodeb-and-srsepc-core" title="Link to this heading">¶</a></h2>
+<p>In two terminals:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Terminal 1 (eNodeB)</span>
+srsenb<span class="w"> </span>enb.conf
+
+<span class="c1"># Terminal 2 (EPC)</span>
+srsepc<span class="w"> </span>epc.conf
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="test-ue-attachment">
+<h2>6. Test UE Attachment<a class="headerlink" href="#test-ue-attachment" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Power on your phone (SIM inserted, “4G/auto” network mode)</p></li>
+<li><p>Check for detection in the logs</p></li>
+<li><p>If needed, adjust the PLMN in <code class="docutils literal notranslate"><span class="pre">enb.conf</span></code> and <code class="docutils literal notranslate"><span class="pre">epc.conf</span></code> to match your SIM IMSI (e.g., MCC/MNC = 001/01)</p></li>
+</ul>
+<hr class="docutils" />
+<section id="useful-docs">
+<h3>Useful Docs<a class="headerlink" href="#useful-docs" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.srsran.com/projects/4g/en/latest/index.html">https://docs.srsran.com/projects/4g/en/latest/index.html</a></p></li>
+<li><p><a class="reference external" href="https://osmocom.org/projects/pysim/wiki">https://osmocom.org/projects/pysim/wiki</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="index.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span>4G : LTE/LTE+
+    </a>
+    <a class="float-right" href="../5G/index.html" title="Next">
+        5G : NSA/SA <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">Installing srsRAN 4G (via PPA or source)</a><ul>
+<li><a class="reference internal" href="#quick-install-via-ppa-ubuntu">1. Quick Install via PPA (Ubuntu)</a></li>
+<li><a class="reference internal" href="#building-from-source">2. Building from Source</a></li>
+<li><a class="reference internal" href="#generate-configure-a-sim-imsi-ki-opc">3. Generate/Configure a SIM (IMSI, Ki, OPC)</a></li>
+<li><a class="reference internal" href="#a-generate-a-standard-sim-profile">a. Generate a standard SIM profile</a></li>
+<li><a class="reference internal" href="#b-add-the-subscriber-to-srsepc">b. Add the subscriber to srsEPC</a></li>
+<li><a class="reference internal" href="#program-a-real-sim-card-optional">4. Program a real SIM card (optional)</a></li>
+<li><a class="reference internal" href="#start-srsenb-enodeb-and-srsepc-core">5. Start srsENB (eNodeB) and srsEPC (core)</a></li>
+<li><a class="reference internal" href="#test-ue-attachment">6. Test UE Attachment</a><ul>
+<li><a class="reference internal" href="#useful-docs">Useful Docs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/features/">Features</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/about-wagtail/"> About Wagtail</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/services/"> Services</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/blog/"> Blog</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/packages/"> Packages</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/developers/"> Developers</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2025, Bastien Baranoff
+            </div>
+            <div class="text-center text-white-50 font-italic mt-3">
+                <small>
+                    Created using
+                    <a class="text-white" href="https://github.com/wagtail/sphinx_wagtail_theme" rel="nofollow" target="_blank">
+                        Sphinx Wagtail Theme 6.5.0
+                    </a>
+                    and
+                    <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
+                        Sphinx 8.2.3
+                    </a>
+                </small>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../_static/documentation_options.js?v=29a6c3e3"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script type="text/javascript" src="../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-content_root="../../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>Bases du GSM : Vue d’ensemble &mdash; Software Defined Radio 1 documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+            <link rel="index" title="Index" href="../../genindex.html" />
+            <link rel="search" title="Search" href="../../search.html" />
+            <link rel="top" title="Software Defined Radio 1 documentation" href="#" />
+            <link rel="up" title="2G : GSM/GPRS/EDGE" href="index.html" />
+            <link rel="next" title="Guide d’installation modulaire EGPRS (Osmocom + SDR)" href="edge.html" />
+            <link rel="prev" title="2G : GSM/GPRS/EDGE" href="index.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="../../index.html"
+                        title="Wagtail"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../../_static/img/wagtail-logo-circle.svg" width="45" height="59" alt="Wagtail"
+                            class="logo-img"
+                        />
+                        Sphinx Wagtail Theme
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../en/index.html">English - SDR Blackbook – Field Notes &amp; Hacks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../en/sdr/index.html">SDR</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../en/sdr/what.html">What is an SDR?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../en/sdr/sdr.html">Different kind of SDR</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../en/2G/index.html">2G</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../en/2G/gsm-basics.html">GSM Basics: Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../en/2G/edge.html">Modular EGPRS Installation Guide (Osmocom + SDR)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../en/2G/osmocombb.html">OsmocomBB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../en/2G/a51.html">A5/1 — GSM Ciphering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../en/3G/index.html">3G : UMTS/HSPA/HSPA+</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../en/3G/evolution.html">The evolution from 2G to 3G: the mobile internet revolution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../en/3G/tutorial.html">OpenBTS-UMTS Quick Install &amp; Usage (Ubuntu, USRP)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../en/4G/index.html">4G : LTE/LTE+</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../en/4G/srsran.html">Installing srsRAN 4G (via PPA or source)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../en/5G/index.html">5G : NSA/SA</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../en/5G/evolution.html">5G Evolution: Major Breakthroughs &amp; New Use Cases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../en/5G/tutorial.html">5G SA Lab: srsRAN Project + Open5GS (Ubuntu, 2024)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../en/faq.html">Q&amp;A</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../en/about.html">Who am I</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index-fr.html">Français - SDR Blackbook – Carnet de terrain &amp; hacks</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../sdr/index.html">SDR</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sdr/what.html">Qu’est-ce qu’un SDR ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdr/sdr.html">Différents types de SDR</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">2G : GSM/GPRS/EDGE</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Bases du GSM : Vue d’ensemble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="edge.html">Guide d’installation modulaire EGPRS (Osmocom + SDR)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="osmocombb.html">OsmocomBB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="a51.html">A5/1 — Chiffrement GSM</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../3G/index.html">3G : UMTS/HSPA/HSPA+</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../3G/evolution.html">L’évolution de la 2G vers la 3G : la révolution de l’internet mobile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../3G/tutorial.html">OpenBTS-UMTS : Installation et utilisation rapide (Ubuntu, USRP)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../4G/index.html">4G : LTE/LTE+</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../4G/srsran.html">Installation de srsRAN 4G (via PPA ou sources)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../5G/index.html">5G : NSA/SA</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../5G/evolution.html">L’évolution 5G : rupture technologique, nouveaux usages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../5G/tutorial.html">5G SA labo : srsRAN Project + Open5GS (Ubuntu 2024)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq-fr.html">Q&amp;A</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../about-fr.html">Qui suis je</a></li>
+</ul>
+</li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../index.html">Docs</a></li>
+            <li class="breadcrumb-item"><a href="../index-fr.html">Français - SDR Blackbook – Carnet de terrain &amp; hacks</a></li>
+            <li class="breadcrumb-item"><a href="index.html">2G : GSM/GPRS/EDGE</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Bases du GSM : Vue d’ensemble</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/wagtail/sphinx_wagtail_theme/blob/main/docs/fr/2G/gsm-basics.md" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../../_sources/fr/2G/gsm-basics.md.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <p><a class="reference internal" href="../../en/2G/gsm-basics.html"><span class="std std-doc">English</span></a></p>
+<section id="bases-du-gsm-vue-d-ensemble">
+<h1>Bases du GSM : Vue d’ensemble<a class="headerlink" href="#bases-du-gsm-vue-d-ensemble" title="Link to this heading">¶</a></h1>
+<p><strong>GSM</strong> (Global System for Mobile Communications) est le standard cellulaire le plus utilisé au monde, initialement conçu pour la voix et les SMS 2G, puis étendu à la donnée (GPRS/EDGE).</p>
+<hr class="docutils" />
+<section id="qu-est-ce-que-le-gsm">
+<h2>Qu’est-ce que le GSM ?<a class="headerlink" href="#qu-est-ce-que-le-gsm" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Standard <strong>cellulaire numérique</strong> pour voix et données mobiles</p></li>
+<li><p>Lancé en Europe en 1991, adopté mondialement</p></li>
+<li><p>Bandes : 900/1800 MHz (Europe/Asie), 850/1900 MHz (Amériques)</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="concepts-cles">
+<h2>Concepts clés<a class="headerlink" href="#concepts-cles" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Réseau cellulaire</strong> : Divise la couverture en « cellules », chacune desservie par une station de base (BTS)</p></li>
+<li><p><strong>Carte SIM</strong> : Stocke l’identité de l’abonné et les clés secrètes</p></li>
+<li><p><strong>Voix, SMS, données bas débit</strong> : Services de base (l’accès Internet a été ajouté ensuite)</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="architecture-gsm">
+<h2>Architecture GSM<a class="headerlink" href="#architecture-gsm" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>MS (Mobile Station)</strong> : Le téléphone (matériel + SIM)</p></li>
+<li><p><strong>BTS (Base Transceiver Station)</strong> : « Antenne relais » – gère le lien radio avec le téléphone</p></li>
+<li><p><strong>BSC (Base Station Controller)</strong> : Gère plusieurs BTS, handover et ressources radio</p></li>
+<li><p><strong>MSC (Mobile Switching Center)</strong> : Bascule appels/SMS, gère mobilité et authentification</p></li>
+<li><p><strong>HLR/VLR (Home/Visitor Location Register)</strong> : Bases de données abonnés et itinérance</p></li>
+<li><p><strong>AUC</strong> : Centre d’authentification (gère SIM/IMSI/Ki)</p></li>
+<li><p><strong>EIR</strong> : Registre des équipements (bloque les téléphones volés)</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[MS] ⇄ [BTS] ⇄ [BSC] ⇄ [MSC] ⇄ [HLR/VLR]
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="frequences-et-modulation">
+<h2>Fréquences et modulation<a class="headerlink" href="#frequences-et-modulation" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>TDMA</strong> : Time Division Multiple Access (plusieurs utilisateurs par fréquence, via des intervalles de temps)</p></li>
+<li><p><strong>GMSK</strong> : Gaussian Minimum Shift Keying (modulation radio efficace et robuste)</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="securite-sim">
+<h2>Sécurité &amp; SIM<a class="headerlink" href="#securite-sim" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Chaque SIM possède un <strong>IMSI</strong> unique et une clé secrète <strong>Ki</strong></p></li>
+<li><p><strong>Authentification</strong> : Algorithmes A3/A8, génération d’une clé session (Kc) pour chaque appel</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="interface-radio-gsm-pile-de-protocoles">
+<h2>Interface radio GSM &amp; pile de protocoles<a class="headerlink" href="#interface-radio-gsm-pile-de-protocoles" title="Link to this heading">¶</a></h2>
+<p>L’« interface radio » GSM définit comment le téléphone communique avec le réseau sur le canal radio : fréquences, slots temporels, couches de protocoles…</p>
+</section>
+<hr class="docutils" />
+<section id="canaux-radio-intervalles-de-temps">
+<h2>Canaux radio &amp; intervalles de temps<a class="headerlink" href="#canaux-radio-intervalles-de-temps" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Bandes de fréquences</strong> : GSM900, 1800, 850, 1900 MHz</p></li>
+<li><p><strong>Canal</strong> = fréquence porteuse (200 kHz) découpée en 8 <strong>timeslots</strong> (TDMA)</p></li>
+<li><p><strong>Un utilisateur</strong> = un timeslot par trame (hors canaux de contrôle/données « packet »)</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="types-de-canaux">
+<h2>Types de canaux<a class="headerlink" href="#types-de-canaux" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Traffic Channels (TCH)</strong> : Transportent voix ou données utilisateur</p></li>
+<li><p><strong>Control Channels (CCH)</strong> :</p>
+<ul>
+<li><p><strong>BCCH</strong> : Broadcast Control (infos réseau, paramètres cellule)</p></li>
+<li><p><strong>CCCH</strong> : Common Control (paging, accès)</p></li>
+<li><p><strong>DCCH</strong> : Dedicated Control (établissement d’appel, authent, signalisation SMS)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="pile-de-protocoles">
+<h2>Pile de protocoles<a class="headerlink" href="#pile-de-protocoles" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Couche 1 (physique)</strong> : Modulation, transmission RF (GMSK)</p></li>
+<li><p><strong>Couche 2 (liaison)</strong> : LAPDm — correction d’erreurs, tramage</p></li>
+<li><p><strong>Couche 3 (réseau)</strong> : RR/MM/CC — gestion radio, mobilité, contrôle d’appel</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="sequence-dappel-simplifiee">
+<h2>Séquence d’appel (simplifiée)<a class="headerlink" href="#sequence-dappel-simplifiee" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Allumage</strong> → Le téléphone scanne le BCCH, sélectionne la meilleure cellule</p></li>
+<li><p><strong>Enregistrement</strong> → Envoie l’IMSI, le réseau authentifie la SIM</p></li>
+<li><p><strong>Appel/SMS</strong> → Signalisation sur DCCH, voix/données sur TCH</p></li>
+<li><p><strong>Handover</strong> → Si déplacement, le réseau commute BTS/BSC</p></li>
+<li><p><strong>Chiffrement</strong> → Flux chiffré (A5/1 etc.) activé après authentification</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="donnees-par-paquets">
+<h2>Données par paquets<a class="headerlink" href="#donnees-par-paquets" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>GPRS/EDGE</strong> : Utilise des timeslots additionnels pour la data (canaux « packet »), gérés par SGSN/GGSN dans le cœur</p></li>
+<li><p><strong>Débits</strong> : De ~9,6 kbps (GSM) à 236 kbps (EDGE)</p></li>
+</ul>
+</section>
+<section id="quel-est-le-role-de-ss7-dans-gsm">
+<h2>Quel est le rôle de SS7 dans GSM ?<a class="headerlink" href="#quel-est-le-role-de-ss7-dans-gsm" title="Link to this heading">¶</a></h2>
+<section id="ss7-signaling-system-no-7-est-le-protocole-de-signalisation-universel-utilise-dans-le-coeur-des-reseaux-telecoms-fixes-et-mobiles">
+<h3>SS7 (Signaling System No. 7) est le <strong>protocole de signalisation universel</strong> utilisé dans le cœur des réseaux télécoms (fixes et mobiles).<a class="headerlink" href="#ss7-signaling-system-no-7-est-le-protocole-de-signalisation-universel-utilise-dans-le-coeur-des-reseaux-telecoms-fixes-et-mobiles" title="Link to this heading">¶</a></h3>
+<p>Dans le GSM, il joue un <strong>rôle clé dans toutes les opérations de gestion du réseau, de l’abonné, du roaming et des services</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="principales-fonctions-de-ss7-dans-gsm">
+<h3>Principales fonctions de SS7 dans GSM :<a class="headerlink" href="#principales-fonctions-de-ss7-dans-gsm" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Gestion de la mobilité / Roaming</strong></p>
+<ul class="simple">
+<li><p>SS7 permet au réseau de savoir où se trouve chaque abonné, même en itinérance (roaming international).</p></li>
+<li><p>Les messages SS7 servent à mettre à jour les bases HLR/VLR (Home Location Register / Visitor Location Register) à chaque changement de zone.</p></li>
+</ul>
+</li>
+<li><p><strong>Authentification et sécurité</strong></p>
+<ul class="simple">
+<li><p>Utilisé pour véhiculer les messages d’authentification entre les MSC (commutateur mobile), HLR, AUC (Authentication Center).</p></li>
+<li><p>Transfert de clés, challenge/réponse lors de l’attachement d’un mobile.</p></li>
+</ul>
+</li>
+<li><p><strong>Établissement et routage des appels</strong></p>
+<ul class="simple">
+<li><p>Toute la “logique” d’établissement, d’acheminement, de libération des appels (voix, SMS) repose sur la signalisation SS7.</p></li>
+<li><p>Routage intelligent : SS7 sait trouver la destination réelle d’un numéro, même si l’abonné a bougé ou a activé des services (transfert d’appel, portabilité, etc).</p></li>
+</ul>
+</li>
+<li><p><strong>SMS</strong></p>
+<ul class="simple">
+<li><p>Les SMS transitent côté signalisation via le réseau SS7, entre les MSC, SMSC (Short Message Service Center), HLR, etc.</p></li>
+</ul>
+</li>
+<li><p><strong>Services avancés</strong></p>
+<ul class="simple">
+<li><p>Gestion du numéro court, services à valeur ajoutée (ex : renvoi, messagerie vocale, USSD, etc).</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="exemples-de-messages-ss7-dans-gsm">
+<h3>Exemples de messages SS7 dans GSM<a class="headerlink" href="#exemples-de-messages-ss7-dans-gsm" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>MAP</strong> (Mobile Application Part) : localise, authentifie, transfère l’état de l’abonné.</p></li>
+<li><p><strong>ISUP</strong> (ISDN User Part) : gère l’établissement d’appels voix.</p></li>
+<li><p><strong>SCCP</strong> (Signalling Connection Control Part) : routage avancé des messages.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="pourquoi-ss7-est-critique-dans-gsm">
+<h2>Pourquoi SS7 est critique dans GSM ?<a class="headerlink" href="#pourquoi-ss7-est-critique-dans-gsm" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>C’est le “langage” entre tous les grands équipements cœur de réseau</strong> (MSC, HLR, VLR, SMSC, AUC, EIR…).</p></li>
+<li><p>Sans SS7, pas d’itinérance, pas de gestion d’abonnés, pas de routage automatique.</p></li>
+<li><p>Il rend possible la mobilité mondiale et la gestion dynamique de millions d’abonnés à l’échelle opérateur.</p></li>
+</ul>
+<hr class="docutils" />
+<section id="a-retenir">
+<h3>À retenir<a class="headerlink" href="#a-retenir" title="Link to this heading">¶</a></h3>
+<blockquote>
+<div><p><strong>SS7 dans GSM</strong> = le “système nerveux” qui coordonne toutes les opérations invisibles du réseau mobile, du simple appel au roaming international, en passant par la sécurité et les SMS.</p>
+</div></blockquote>
+</section>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="index.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span>2G : GSM/GPRS/EDGE
+    </a>
+    <a class="float-right" href="edge.html" title="Next">
+        Guide d’installation modulaire EGPRS (Osmocom + SDR) <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">Bases du GSM : Vue d’ensemble</a><ul>
+<li><a class="reference internal" href="#qu-est-ce-que-le-gsm">Qu’est-ce que le GSM ?</a></li>
+<li><a class="reference internal" href="#concepts-cles">Concepts clés</a></li>
+<li><a class="reference internal" href="#architecture-gsm">Architecture GSM</a></li>
+<li><a class="reference internal" href="#frequences-et-modulation">Fréquences et modulation</a></li>
+<li><a class="reference internal" href="#securite-sim">Sécurité &amp; SIM</a></li>
+<li><a class="reference internal" href="#interface-radio-gsm-pile-de-protocoles">Interface radio GSM &amp; pile de protocoles</a></li>
+<li><a class="reference internal" href="#canaux-radio-intervalles-de-temps">Canaux radio &amp; intervalles de temps</a></li>
+<li><a class="reference internal" href="#types-de-canaux">Types de canaux</a></li>
+<li><a class="reference internal" href="#pile-de-protocoles">Pile de protocoles</a></li>
+<li><a class="reference internal" href="#sequence-dappel-simplifiee">Séquence d’appel (simplifiée)</a></li>
+<li><a class="reference internal" href="#donnees-par-paquets">Données par paquets</a></li>
+<li><a class="reference internal" href="#quel-est-le-role-de-ss7-dans-gsm">Quel est le rôle de SS7 dans GSM ?</a><ul>
+<li><a class="reference internal" href="#ss7-signaling-system-no-7-est-le-protocole-de-signalisation-universel-utilise-dans-le-coeur-des-reseaux-telecoms-fixes-et-mobiles">SS7 (Signaling System No. 7) est le <strong>protocole de signalisation universel</strong> utilisé dans le cœur des réseaux télécoms (fixes et mobiles).</a></li>
+<li><a class="reference internal" href="#principales-fonctions-de-ss7-dans-gsm">Principales fonctions de SS7 dans GSM :</a></li>
+<li><a class="reference internal" href="#exemples-de-messages-ss7-dans-gsm">Exemples de messages SS7 dans GSM</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pourquoi-ss7-est-critique-dans-gsm">Pourquoi SS7 est critique dans GSM ?</a><ul>
+<li><a class="reference internal" href="#a-retenir">À retenir</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/features/">Features</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/about-wagtail/"> About Wagtail</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/services/"> Services</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/blog/"> Blog</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/packages/"> Packages</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/developers/"> Developers</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2025, Bastien Baranoff
+            </div>
+            <div class="text-center text-white-50 font-italic mt-3">
+                <small>
+                    Created using
+                    <a class="text-white" href="https://github.com/wagtail/sphinx_wagtail_theme" rel="nofollow" target="_blank">
+                        Sphinx Wagtail Theme 6.5.0
+                    </a>
+                    and
+                    <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
+                        Sphinx 8.2.3
+                    </a>
+                </small>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../_static/documentation_options.js?v=29a6c3e3"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script type="text/javascript" src="../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

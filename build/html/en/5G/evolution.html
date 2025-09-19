@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-content_root="../../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>5G Evolution: Major Breakthroughs &amp; New Use Cases &mdash; Software Defined Radio 1 documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+            <link rel="index" title="Index" href="../../genindex.html" />
+            <link rel="search" title="Search" href="../../search.html" />
+            <link rel="top" title="Software Defined Radio 1 documentation" href="#" />
+            <link rel="up" title="5G : NSA/SA" href="index.html" />
+            <link rel="next" title="5G SA Lab: srsRAN Project + Open5GS (Ubuntu, 2024)" href="tutorial.html" />
+            <link rel="prev" title="5G : NSA/SA" href="index.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="../../index.html"
+                        title="Wagtail"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../../_static/img/wagtail-logo-circle.svg" width="45" height="59" alt="Wagtail"
+                            class="logo-img"
+                        />
+                        Sphinx Wagtail Theme
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">English - SDR Blackbook – Field Notes &amp; Hacks</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../sdr/index.html">SDR</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sdr/what.html">What is an SDR?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdr/sdr.html">Different kind of SDR</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../2G/index.html">2G</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../2G/gsm-basics.html">GSM Basics: Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2G/edge.html">Modular EGPRS Installation Guide (Osmocom + SDR)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2G/osmocombb.html">OsmocomBB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2G/a51.html">A5/1 — GSM Ciphering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../3G/index.html">3G : UMTS/HSPA/HSPA+</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../3G/evolution.html">The evolution from 2G to 3G: the mobile internet revolution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../3G/tutorial.html">OpenBTS-UMTS Quick Install &amp; Usage (Ubuntu, USRP)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../4G/index.html">4G : LTE/LTE+</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../4G/srsran.html">Installing srsRAN 4G (via PPA or source)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">5G : NSA/SA</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">5G Evolution: Major Breakthroughs &amp; New Use Cases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html">5G SA Lab: srsRAN Project + Open5GS (Ubuntu, 2024)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html">Q&amp;A</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../about.html">Who am I</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../fr/index-fr.html">Français - SDR Blackbook – Carnet de terrain &amp; hacks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../fr/sdr/index.html">SDR</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/sdr/what.html">Qu’est-ce qu’un SDR ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/sdr/sdr.html">Différents types de SDR</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../fr/2G/index.html">2G : GSM/GPRS/EDGE</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/2G/gsm-basics.html">Bases du GSM : Vue d’ensemble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/2G/edge.html">Guide d’installation modulaire EGPRS (Osmocom + SDR)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/2G/osmocombb.html">OsmocomBB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/2G/a51.html">A5/1 — Chiffrement GSM</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../fr/3G/index.html">3G : UMTS/HSPA/HSPA+</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/3G/evolution.html">L’évolution de la 2G vers la 3G : la révolution de l’internet mobile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/3G/tutorial.html">OpenBTS-UMTS : Installation et utilisation rapide (Ubuntu, USRP)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../fr/4G/index.html">4G : LTE/LTE+</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/4G/srsran.html">Installation de srsRAN 4G (via PPA ou sources)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../fr/5G/index.html">5G : NSA/SA</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/5G/evolution.html">L’évolution 5G : rupture technologique, nouveaux usages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../fr/5G/tutorial.html">5G SA labo : srsRAN Project + Open5GS (Ubuntu 2024)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../fr/faq-fr.html">Q&amp;A</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fr/about-fr.html">Qui suis je</a></li>
+</ul>
+</li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../index.html">Docs</a></li>
+            <li class="breadcrumb-item"><a href="../index.html">English - SDR Blackbook – Field Notes &amp; Hacks</a></li>
+            <li class="breadcrumb-item"><a href="index.html">5G : NSA/SA</a></li>
+        <li class="breadcrumb-item active" aria-current="page">5G Evolution: Major Breakthroughs &amp; New Use Cases</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/wagtail/sphinx_wagtail_theme/blob/main/docs/en/5G/evolution.md" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../../_sources/en/5G/evolution.md.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="g-evolution-major-breakthroughs-new-use-cases">
+<h1>5G Evolution: Major Breakthroughs &amp; New Use Cases<a class="headerlink" href="#g-evolution-major-breakthroughs-new-use-cases" title="Link to this heading">¶</a></h1>
+<section id="g-goals-and-key-breakthroughs">
+<h2>1. 5G Goals and Key Breakthroughs<a class="headerlink" href="#g-goals-and-key-breakthroughs" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>10x to 100x faster than 4G</strong> (up to 10 Gbps peak, 1 Gbps typical)</p></li>
+<li><p><strong>Ultra-low latency</strong> (as low as &lt; 1 ms)</p></li>
+<li><p><strong>Massive connectivity</strong>: up to 1 million devices/km² (IoT, sensors, vehicles)</p></li>
+<li><p><strong>Ultra-reliable and real-time</strong> (for industry, healthcare, autonomous vehicles)</p></li>
+<li><p><strong>Network flexibility</strong>: “network slicing”—each use case can get its own dedicated “mini-network”</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="major-technical-innovations">
+<h2>2. Major Technical Innovations<a class="headerlink" href="#major-technical-innovations" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>New frequency bands</strong>: adds millimeter wave spectrum (&gt;24 GHz), bringing more capacity but shorter range</p></li>
+<li><p><strong>Massive MIMO</strong>: dozens or hundreds of antennas to boost throughput and coverage</p></li>
+<li><p><strong>Beamforming</strong>: dynamic signal steering towards each user</p></li>
+<li><p><strong>Fully cloud-native core</strong>: network functions virtualized (NFV) and software-driven (SDN)</p></li>
+<li><p><strong>Standalone (SA) architecture</strong>: pure 5G core, vs. Non-Standalone (NSA) where 5G relies on the 4G core</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="new-use-cases-enabled">
+<h2>3. New Use Cases Enabled<a class="headerlink" href="#new-use-cases-enabled" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Ultra-fast mobile internet</strong> (4K/8K streaming, AR/VR, cloud gaming)</p></li>
+<li><p><strong>Industry 4.0</strong>: automation, robotics, predictive maintenance, private factory networks</p></li>
+<li><p><strong>Connected &amp; autonomous vehicles</strong>: real-time V2X communications</p></li>
+<li><p><strong>Healthcare</strong>: real-time telemedicine, remote surgery</p></li>
+<li><p><strong>Smart Cities &amp; massive IoT</strong>: energy management, surveillance, smart transport, city-wide sensors</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="challenges-criticism-and-limits">
+<h2>4. Challenges, Criticism, and Limits<a class="headerlink" href="#challenges-criticism-and-limits" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Uneven coverage</strong> (especially mmWave: short range, requires many small cells)</p></li>
+<li><p><strong>Energy consumption</strong> (optimized by slicing but needs many more antennas)</p></li>
+<li><p><strong>New security risks</strong> (larger attack surface, cloud-native core)</p></li>
+<li><p><strong>High investment costs</strong> (infrastructure, device upgrades)</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="quick-comparison-table">
+<h2>5. Quick Comparison Table<a class="headerlink" href="#quick-comparison-table" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Generation</p></th>
+<th class="head"><p>Max Data Rate</p></th>
+<th class="head"><p>Latency</p></th>
+<th class="head"><p>Connections/km²</p></th>
+<th class="head"><p>Architecture</p></th>
+<th class="head"><p>Key Use Cases</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>4G</p></td>
+<td><p>~100 Mbps – 1 Gbps</p></td>
+<td><p>~50 ms</p></td>
+<td><p>~100,000</p></td>
+<td><p>All-IP</p></td>
+<td><p>Video, web, mobile apps</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>5G</strong></p></td>
+<td><p>1–10 Gbps</p></td>
+<td><p>&lt; 1–10 ms</p></td>
+<td><p>1,000,000+</p></td>
+<td><p>Cloud, slicing</p></td>
+<td><p>Massive IoT, VR/AR, Industry 4.0</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<hr class="docutils" />
+<section id="key-takeaways">
+<h2>6. Key Takeaways<a class="headerlink" href="#key-takeaways" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><p><strong>5G isn’t just “faster”</strong>—it transforms the network architecture, unlocks critical new applications (industry, healthcare, vehicles), and sets the stage for a real-time, hyper-connected world.</p>
+</div></blockquote>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="index.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span>5G : NSA/SA
+    </a>
+    <a class="float-right" href="tutorial.html" title="Next">
+        5G SA Lab: srsRAN Project + Open5GS (Ubuntu, 2024) <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">5G Evolution: Major Breakthroughs &amp; New Use Cases</a><ul>
+<li><a class="reference internal" href="#g-goals-and-key-breakthroughs">1. 5G Goals and Key Breakthroughs</a></li>
+<li><a class="reference internal" href="#major-technical-innovations">2. Major Technical Innovations</a></li>
+<li><a class="reference internal" href="#new-use-cases-enabled">3. New Use Cases Enabled</a></li>
+<li><a class="reference internal" href="#challenges-criticism-and-limits">4. Challenges, Criticism, and Limits</a></li>
+<li><a class="reference internal" href="#quick-comparison-table">5. Quick Comparison Table</a></li>
+<li><a class="reference internal" href="#key-takeaways">6. Key Takeaways</a></li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/features/">Features</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/about-wagtail/"> About Wagtail</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/services/"> Services</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/blog/"> Blog</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/packages/"> Packages</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/developers/"> Developers</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2025, Bastien Baranoff
+            </div>
+            <div class="text-center text-white-50 font-italic mt-3">
+                <small>
+                    Created using
+                    <a class="text-white" href="https://github.com/wagtail/sphinx_wagtail_theme" rel="nofollow" target="_blank">
+                        Sphinx Wagtail Theme 6.5.0
+                    </a>
+                    and
+                    <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
+                        Sphinx 8.2.3
+                    </a>
+                </small>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../_static/documentation_options.js?v=29a6c3e3"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script type="text/javascript" src="../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>
