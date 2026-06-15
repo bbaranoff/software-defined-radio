@@ -23,20 +23,20 @@ de Python dans `.python-version`.
 ## Option B — Déploiement direct du HTML déjà compilé (le plus rapide)
 
 Le dossier `build/html` est déjà versionné, donc aucune recompilation n'est
-nécessaire :
+nécessaire. La config `wrangler.toml` déclare `build/html` comme dossier
+d'assets statiques (Workers Static Assets) :
 
-```bash
-npx wrangler pages deploy build/html --project-name software-defined-radio
+```toml
+[assets]
+directory = "build/html"
 ```
 
-`wrangler.toml` indique déjà `pages_build_output_dir = "build/html"`, donc on
-peut aussi simplement faire :
+Déploiement :
 
 ```bash
-npx wrangler pages deploy
+npx wrangler login    # une seule fois, pour s'authentifier
+npx wrangler deploy
 ```
-
-(Première fois : `npx wrangler login` pour s'authentifier.)
 
 ## Reconstruire localement
 
