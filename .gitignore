@@ -1,0 +1,7 @@
+# Sortie compilée Sphinx — régénérée par Cloudflare à chaque build
+build/
+
+# Python
+.venv/
+__pycache__/
+*.pyc

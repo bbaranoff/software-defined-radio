@@ -18,7 +18,14 @@
       "Bash(python3 -m ensurepip --version)",
       "Bash(dpkg -l)",
       "Bash(awk '{print $2,$3}')",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" --max-time 5 https://bootstrap.pypa.io/get-pip.py)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" --max-time 5 https://bootstrap.pypa.io/get-pip.py)",
+      "Bash(pip list *)",
+      "Bash(sphinx-build -b html source build/html)",
+      "Bash(pip show *)",
+      "Bash(git rm *)",
+      "Bash(git add *)",
+      "Bash(git commit -q -m ' *)",
+      "Bash(git push *)"
     ]
   }
 }

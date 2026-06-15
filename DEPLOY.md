@@ -1,7 +1,8 @@
 # Déploiement sur Cloudflare Pages
 
-Ce dépôt est un site de documentation **Sphinx** (thème Wagtail + MyST).
-Le HTML compilé est généré dans `build/html` — c'est le dossier servi en production.
+Ce dépôt est un site de documentation **Sphinx** (thème Read the Docs + MyST).
+Le HTML compilé est généré par Cloudflare dans `build/html` à chaque build —
+ce dossier n'est plus versionné (voir `.gitignore`).
 
 ## Option A — Git + reconstruction (recommandé)
 
