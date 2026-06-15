@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip3 show *)",
+      "Bash(sphinx-build --version)",
+      "Bash(pip3 list *)",
+      "Bash(pipx list *)",
+      "Bash(python3 -m http.server 8099)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{content_type}\\\\n\" http://localhost:8099/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8099/en/index.html)",
+      "Bash(curl -s http://localhost:8099/)",
+      "Bash(kill %1)"
+    ]
+  }
+}
