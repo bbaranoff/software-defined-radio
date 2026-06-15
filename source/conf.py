@@ -26,10 +26,10 @@ exclude_patterns = []
 html_static_path = ['_static']
 extensions = [
     "myst_parser",
-    'sphinx_wagtail_theme'
+    "sphinx_rtd_theme",
     # ... (autres extensions éventuelles)
 ]
-html_theme = 'sphinx_wagtail_theme'
+html_theme = "sphinx_rtd_theme"
 
 # Pour Sphinx >=4.2, tu peux utiliser master_doc (sinon: root_doc)
 master_doc = "index"
