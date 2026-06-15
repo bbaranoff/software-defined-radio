@@ -1,5 +1,10 @@
 name = "software-defined-radio"
 compatibility_date = "2025-06-15"
 
+# Cloudflare compile la doc Sphinx (thème RTD) avant de déployer.
+# build/ n'est donc plus versionné (voir .gitignore).
+[build]
+command = "pip install -r requirements.txt && sphinx-build -b html source build/html"
+
 [assets]
 directory = "build/html"
