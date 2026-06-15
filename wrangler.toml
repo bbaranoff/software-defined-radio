@@ -1,3 +1,5 @@
 name = "software-defined-radio"
 compatibility_date = "2025-06-15"
-pages_build_output_dir = "build/html"
+
+[assets]
+directory = "build/html"
